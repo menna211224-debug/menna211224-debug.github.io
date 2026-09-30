@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Menna Wael | Junior Data Analyst</title>
+<meta name="description" content="Junior data analyst. Power BI and Excel dashboards built on the Superstore dataset.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Newsreader:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:dark;--bg:#100D26;--panel:#1A1640;--panel2:#231E52;--ink:#F3F0FF;--muted:#B3AED6;--violet:#8B6CFF;--mint:#2EE6B0;--sun:#FFB238;--pink:#FF6FA8;--line:#352F6E}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Newsreader",Georgia,serif;font-size:19px;line-height:1.6;overflow-x:hidden}
+h1,h2,h3,.sans,nav,.btn,.kpi,.r,.tag{font-family:"Bricolage Grotesque",system-ui,sans-serif}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--mint);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+nav{display:flex;justify-content:space-between;padding:22px 0;font-weight:500;font-size:16px}
+nav .l{display:flex;gap:22px}nav a{text-decoration:none}nav a:hover{color:var(--mint)}
+.hero{padding:40px 0 80px;position:relative}
+.hero h1{font-size:clamp(64px,15vw,168px);line-height:.86;letter-spacing:-.05em;margin:0;font-weight:800}
+.hero h1 span{display:block;color:transparent;-webkit-text-stroke:2px var(--violet)}
+.hero p{max-width:36ch;font-size:23px;color:var(--muted);margin:28px 0 30px}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{font-weight:700;font-size:16px;padding:13px 24px;border-radius:999px;text-decoration:none;border:2px solid var(--ink)}
+.btn.main{background:var(--mint);border-color:var(--mint);color:#0B0A1E}
+.btn:hover{background:var(--violet);border-color:var(--violet);color:#fff}
+.kpis{display:flex;gap:16px;margin-top:64px;flex-wrap:wrap}
+.kpi{flex:1 1 200px;border-radius:20px;padding:20px 22px;color:#0B0A1E;transform:rotate(-2deg);animation:drop .7s cubic-bezier(.2,1.3,.4,1) both}
+.kpi:nth-child(2){transform:rotate(1.5deg);animation-delay:.12s}.kpi:nth-child(3){transform:rotate(-1deg);animation-delay:.24s}.kpi:nth-child(4){transform:rotate(2deg);animation-delay:.36s}
+.kpi b{display:block;font-size:44px;line-height:1;letter-spacing:-.03em;font-weight:800}
+.kpi small{font-size:15px;font-weight:500}
+.k1{background:var(--mint)}.k2{background:var(--sun)}.k3{background:var(--pink)}.k4{background:var(--violet);color:#fff}
+.note{color:var(--muted);font-size:16px;margin:14px 0 0}
+@keyframes drop{from{opacity:0;translate:0 -40px}to{opacity:1;translate:0 0}}
+@media (prefers-reduced-motion:reduce){.kpi{animation:none}html{scroll-behavior:auto}}
+section{padding:72px 0;border-top:2px solid var(--line)}
+h2{font-size:clamp(32px,5vw,54px);letter-spacing:-.03em;margin:0 0 24px;line-height:1.05}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:40px}.two p{margin:0 0 16px}
+.proj h2{margin-bottom:8px}
+.lede{max-width:62ch;color:var(--muted);margin:0 0 28px}
+.tags{display:flex;flex-wrap:wrap;gap:8px;padding:0;margin:0 0 30px;list-style:none}
+.tag{font-size:14px;font-weight:500;padding:4px 13px;border-radius:999px;background:var(--panel2);border:1.5px solid var(--line)}
+.shots{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin-bottom:16px}
+.shots:not(:has(img)){display:none}
+.shots img{width:100%;border-radius:14px;border:2px solid var(--line);display:block}
+.frame{background:var(--panel);border:2px solid var(--line);border-radius:22px;padding:22px}
+.frame>header{display:flex;gap:7px;margin-bottom:18px;align-items:center;font-size:15px;color:var(--muted)}
+.frame>header i{width:11px;height:11px;border-radius:50%;background:var(--pink)}.frame>header i:nth-child(2){background:var(--sun)}.frame>header i:nth-child(3){background:var(--mint)}
+.frame>header span{margin-left:10px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.card{background:var(--panel2);border-radius:16px;padding:18px}
+.card.wide{grid-column:1/-1}
+.card h3{font-size:18px;margin:0 0 4px}.card p{margin:0 0 14px;font-size:16px;color:var(--muted)}
+.r{display:grid;grid-template-columns:104px 1fr 92px;gap:10px;align-items:center;font-size:14px;margin:7px 0}
+.r span{color:var(--muted)}.r b{font-weight:500;text-align:right}
+.t{position:relative;height:16px}.t.d{height:24px}
+.t i{position:absolute;border-radius:3px}.t u{position:absolute;top:-3px;bottom:-3px;width:2px;background:var(--muted);opacity:.6}
+.legend{display:flex;gap:16px;font-size:14px;color:var(--muted);margin-bottom:8px}
+.legend s{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;text-decoration:none}
+svg.line{width:100%;height:auto;display:block}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:22px}
+.fact{border-left:5px solid var(--mint);padding:2px 0 2px 16px;font-size:17px}
+.fact:nth-child(2){border-color:var(--sun)}.fact:nth-child(3){border-color:var(--pink)}
+.fact b{font-family:"Bricolage Grotesque",sans-serif;display:block;font-size:22px}
+.skills{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.skills h3{font-size:22px;margin:0 0 4px}.skills small{display:block;color:var(--muted);margin-bottom:12px;font-size:16px}
+.skills ul{padding:0;margin:0;list-style:none}.skills li{padding:8px 0;border-bottom:1px solid var(--line)}
+.contact p{font-size:26px;max-width:24ch;margin:0 0 24px}
+footer{padding:36px 0 48px;color:var(--muted);font-size:16px;border-top:2px solid var(--line)}
+@media (max-width:780px){.two,.grid,.skills,.facts{grid-template-columns:1fr}.r{grid-template-columns:84px 1fr 78px}nav .l{gap:14px;font-size:15px}.kpi b{font-size:36px}.hero h1 span{-webkit-text-stroke-width:1.5px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav aria-label="Main"><span>Menna Wael</span><div class="l"><a href="#about">About</a><a href="#powerbi">Power BI</a><a href="#excel">Excel</a><a href="#skills">Skills</a><a href="#contact">Contact</a></div></nav>
+
+<header class="hero">
+ <h1>Menna<span>Wael</span></h1>
+ <p>Junior data analyst. I turn messy sales data into dashboards that show where the money is made and where it leaks.</p>
+ <div class="btns"><a class="btn main" href="#powerbi">See the dashboards</a></div>
+ <div class="kpis" aria-label="Headline numbers from the Superstore dataset">
+  <div class="kpi k1"><b>$2.30M</b><small>Total sales</small></div>
+  <div class="kpi k2"><b>$286K</b><small>Total profit</small></div>
+  <div class="kpi k3"><b>12.5%</b><small>Profit margin</small></div>
+  <div class="kpi k4"><b>9,993</b><small>Order lines analysed</small></div>
+ </div>
+ <p class="note">Numbers above come from my own analysis of the Superstore dataset.</p>
+</header>
+
+<section id="about">
+ <h2>About</h2>
+ <div class="two">
+  <div><p>Third-year Computer Engineering and Automatic Control student at Tanta University. I'm training in Big Data (NTI) and as a Junior Data Analyst (DEPI).</p></div>
+  <div><p>I like the moment a number stops being a number and becomes a reason to do something. Below are two projects that show how I get there.</p></div>
+ </div>
+</section>
+
+<section id="powerbi" class="proj">
+ <h2>Superstore Sales Dashboard</h2>
+ <p class="lede">A three-page Power BI report: Executive Overview, Product Analysis and Product Details. I built a star schema in Power Query, wrote the DAX measures, and added slicers for region, category and year.</p>
+ <ul class="tags"><li class="tag">Power BI</li><li class="tag">DAX</li><li class="tag">Power Query</li><li class="tag">Star schema</li></ul>
+ <div class="shots"><img src="images/powerbi-overview.png" alt="Power BI Executive Overview page" onerror="this.remove()"><img src="images/powerbi-products.png" alt="Power BI Product Analysis page" onerror="this.remove()"><img src="images/powerbi-details.png" alt="Power BI Product Details page" onerror="this.remove()"></div>
+ <div class="frame">
+  <header><i></i><i></i><i></i><span>Executive Overview and Product Analysis, rebuilt from the dataset</span></header>
+  <div class="grid">
+   <div class="card wide"><h3>Quarterly sales</h3><p>Sales peak every Q4, and each year's peak is higher than the last.</p><svg class="line" id="line" viewBox="0 0 640 170" role="img" aria-label="Quarterly sales from 2016 to 2019"></svg></div>
+   <div class="card"><h3>Sales and profit by region</h3><div class="legend"><span><s style="background:var(--violet)"></s>Sales</span><span><s style="background:var(--mint)"></s>Profit</span></div><div id="reg"></div></div>
+   <div class="card"><h3>Profit by sub-category</h3><p>Pink bars lose money.</p><div id="sub"></div></div>
+  </div>
+ </div>
+ <div class="facts">
+  <div class="fact"><b>Furniture</b>$742K in sales but only $18K profit.</div>
+  <div class="fact"><b>Tables</b>Lose about $17.7K on $207K of sales.</div>
+  <div class="fact"><b>Copiers</b>Earn about $55.6K, the most of any sub-category.</div>
+ </div>
+</section>
+
+<section id="excel" class="proj">
+ <h2>Excel Sales Analysis</h2>
+ <p class="lede">I cleaned the raw Orders sheet, built nine pivot tables and six charts, and assembled a Dashboard sheet with slicers for interactive filtering.</p>
+ <ul class="tags"><li class="tag">Excel</li><li class="tag">Pivot tables</li><li class="tag">Slicers</li><li class="tag">Data cleaning</li></ul>
+ <div class="shots"><img src="images/excel-dashboard.png" alt="Excel Dashboard sheet" onerror="this.remove()"></div>
+ <div class="frame">
+  <header><i></i><i></i><i></i><span>Findings from the pivot tables</span></header>
+  <div class="grid">
+   <div class="card"><h3>Average profit per order line, by discount</h3><p>Once discounts pass 30%, the average order line loses money.</p><div id="disc"></div></div>
+   <div class="card"><h3>Sales and profit by category</h3><div class="legend"><span><s style="background:var(--violet)"></s>Sales</span><span><s style="background:var(--mint)"></s>Profit</span></div><div id="cat"></div></div>
+  </div>
+ </div>
+ <div class="facts">
+  <div class="fact"><b>0.3 to 0.4</b>Discount band where average profit first turns negative.</div>
+  <div class="fact"><b>Technology</b>Highest sales at $836K and highest profit at $145K.</div>
+  <div class="fact"><b>Office Supplies</b>Sells the most units, 22,906, with a healthy $122K profit.</div>
+ </div>
+</section>
+
+<section id="skills">
+ <h2>Skills</h2>
+ <div class="skills">
+  <div><h3>Strongest</h3><small>What I reach for first</small><ul><li>SQL</li><li>Power BI</li><li>Data cleaning</li></ul></div>
+  <div><h3>Solid</h3><small>Used across projects</small><ul><li>Python and pandas</li><li>Excel</li><li>Statistics</li></ul></div>
+  <div><h3>Growing</h3><small>Currently levelling up</small><ul><li>DAX</li><li>M language</li><li>Big Data tools</li></ul></div>
+ </div>
+</section>
+
+<section id="contact" class="contact">
+ <h2>Contact</h2>
+ <p>Have data that needs a story? Let's talk.</p>
+ <div class="btns">
+  <a class="btn main" href="https://mail.google.com/mail/?view=cm&fs=1&to=menna211224@gmail.com" target="_blank" rel="noopener">Email me</a>
+  <a class="btn" href="https://www.linkedin.com/in/menna-wael-a2b283365">LinkedIn</a>
+  <a class="btn" href="https://github.com/menna211224-debug">GitHub</a>
+ </div>
+ <p class="note">menna211224@gmail.com</p>
+</section>
+</div>
+<footer><div class="wrap">Menna Wael. Built by hand with HTML and CSS.</div></footer>
+
+<script>
+const V='var(--violet)',M='var(--mint)';
+const k=n=>(n<0?'-':'')+'$'+(Math.abs(n)>=1000?Math.round(Math.abs(n)/1000)+'K':Math.abs(n));
+function hb(id,rows,cols,fmt,lo,hi,h){
+ const n=rows[0][1].length;
+ document.getElementById(id).innerHTML=rows.map(([l,vs])=>'<div class="r"><span>'+l+'</span><div class="t'+(n>1?' d':'')+'">'+vs.map((v,i)=>'<i style="left:'+((Math.min(v,0)-lo)/(hi-lo)*100)+'%;width:'+(Math.abs(v)/(hi-lo)*100)+'%;top:'+(i*100/n)+'%;height:'+(100/n-(n>1?6:0))+'%;background:'+(v<0?'var(--pink)':cols[i])+'"></i>').join('')+'<u style="left:'+(-lo/(hi-lo)*100)+'%"></u></div><b>'+vs.map(fmt).join(' / ')+'</b></div>').join('');
+}
+hb('reg',[['West',[725458,108418]],['East',[678500,91535]],['Central',[501240,39706]],['South',[391722,46749]]],[V,M],k,0,725458);
+hb('sub',[['Copiers',[55618]],['Phones',[44516]],['Accessories',[41937]],['Paper',[34054]],['Binders',[30222]],['Chairs',[26602]],['Storage',[21279]],['Appliances',[18138]],['Machines',[3385]],['Supplies',[-1189]],['Bookcases',[-3473]],['Tables',[-17725]]],[M],k,-17725,55618);
+hb('disc',[['0 to 10%',[72.7]],['10 to 20%',[93.6]],['20 to 30%',[24.5]],['30 to 40%',[-48.3]],['40 to 50%',[-79.3]],['50 to 60%',[-236.4]],['70 to 80%',[-107.3]]],[M],v=>(v<0?'-':'')+'$'+Math.abs(Math.round(v)),-236.4,93.6);
+hb('cat',[['Technology',[836154,145455]],['Furniture',[741718,18463]],['Office Supplies',[719047,122491]]],[V,M],k,0,836154);
+const q=[74448,86257,143633,179628,68852,89124,130260,182297,93237,136082,143787,236099,123145,133764,196252,280054];
+const W=640,H=130,mx=300000,x=i=>20+i*(W-40)/15,y=v=>H-v/mx*(H-14);
+const pts=q.map((v,i)=>x(i)+','+y(v)).join(' ');
+document.getElementById('line').innerHTML='<defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8B6CFF" stop-opacity=".5"/><stop offset="1" stop-color="#8B6CFF" stop-opacity="0"/></linearGradient></defs><polygon points="'+x(0)+','+H+' '+pts+' '+x(15)+','+H+'" fill="url(#g)"/><polyline points="'+pts+'" fill="none" stroke="#8B6CFF" stroke-width="3" stroke-linejoin="round"/>'+q.map((v,i)=>i%4==3?'<circle cx="'+x(i)+'" cy="'+y(v)+'" r="6" fill="#2EE6B0"/><text x="'+x(i)+'" y="'+(y(v)-12)+'" fill="#F3F0FF" font-size="14" text-anchor="'+(i==15?'end':'middle')+'" font-family="Bricolage Grotesque,sans-serif">'+k(v)+'</text>':'').join('')+[2016,2017,2018,2019].map((t,i)=>'<text x="'+x(i*4+1.5)+'" y="162" fill="#B3AED6" font-size="14" text-anchor="middle" font-family="Bricolage Grotesque,sans-serif">'+t+'</text>').join('');
+</script>
+</body>
+</html>
